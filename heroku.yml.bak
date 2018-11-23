@@ -1,6 +1,6 @@
 # setup:
 #   config:
-#     METHOD: heroku.yml with setup section
+#     METHOD: heroku.yml with setup section (beta)
 build:
   docker:
     web: Dockerfile
