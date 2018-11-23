@@ -19,6 +19,7 @@ Cleanup
     $ APP_NAME=masutaka-docker
     $ heroku container:login
     $ heroku create $APP_NAME
+    $ open https://dashboard.heroku.com/apps/${APP_NAME}/settings
     $ git remote set-url heroku https://git.heroku.com/${APP_NAME}.git
     $ heroku config:set DESCRIPTION='This application is running using "heroku container:push web".'
     $ heroku container:push web
@@ -35,6 +36,7 @@ Cleanup
 
     $ APP_NAME=masutaka-heroku-yml
     $ heroku create --stack=container $APP_NAME
+    $ open https://dashboard.heroku.com/apps/${APP_NAME}/settings
     $ git remote set-url heroku https://git.heroku.com/${APP_NAME}.git
     $ heroku config:set DESCRIPTION='This application is running using heroku.yml without setup section.'
     $ git push heroku master
@@ -54,6 +56,7 @@ Cleanup
     $ git add heroku.yml
     $ git commit -m 'Enable setup section'
     $ heroku create --stack=container --manifest $APP_NAME
+    $ open https://dashboard.heroku.com/apps/${APP_NAME}/settings
     $ git remote set-url heroku https://git.heroku.com/${APP_NAME}.git
     $ git push heroku master
     $ heroku open
