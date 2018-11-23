@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    environment:
+      PORT: 5000
+    ports:
+      - "18080:5000"
