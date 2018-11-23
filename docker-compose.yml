@@ -4,6 +4,7 @@ services:
   web:
     build: .
     environment:
+      DESCRIPTION: This application is running using docker-compose.yml.
       PORT: 5000
     ports:
       - "18080:5000"
