@@ -31,9 +31,8 @@ Cleanup
 ### without setup section
 
     $ APP_NAME=masutaka-heroku-yml
-    $ heroku create $APP_NAME
+    $ heroku create --stack=container $APP_NAME
     $ heroku config:set DESCRIPTION='This application is running using heroku.yml without setup section.'
-    $ heroku stack:set container
     $ git push heroku master
     $ heroku open
 
@@ -46,9 +45,9 @@ Cleanup
     $ APP_NAME=masutaka-heroku-yml-setup
     $ heroku update beta
     $ heroku plugins:install @heroku-cli/plugin-manifest
-    $ heroku create $APP_NAME --manifest
-    $ heroku stack:set container
+    $ heroku create --stack=container --manifest $APP_NAME
     $ sed -i '.bak' -e 's/^# //g' heroku.yml
+    $ git diff
     $ git add heroku.yml
     $ git commit -m 'Enable setup section'
     $ git push heroku master
