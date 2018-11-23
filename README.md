@@ -54,7 +54,7 @@ Cleanup
 
     $ heroku destroy masutaka-heroku-yml
 
-### 3.2. with setup section
+### 3.2. with setup section (beta)
 
 Prepare
 
