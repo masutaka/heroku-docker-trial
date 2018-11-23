@@ -1,6 +1,8 @@
 # Heroku Docker Trial
 
-You can run this sample application in several ways.
+This is a sample application for [Heroku Meetup #23 "Heroku Dynamite!!"](https://herokujp.doorkeeper.jp/events/82754).
+
+You can run it in several ways.
 
 ## [Local Development with Docker Compose](https://devcenter.heroku.com/articles/local-development-with-docker-compose)
 
@@ -17,6 +19,7 @@ Cleanup
     $ APP_NAME=masutaka-docker
     $ heroku container:login
     $ heroku create $APP_NAME
+    $ git remote set-url heroku https://git.heroku.com/${APP_NAME}.git
     $ heroku config:set DESCRIPTION='This application is running using "heroku container:push web".'
     $ heroku container:push web
     $ heroku container:release web
@@ -32,6 +35,7 @@ Cleanup
 
     $ APP_NAME=masutaka-heroku-yml
     $ heroku create --stack=container $APP_NAME
+    $ git remote set-url heroku https://git.heroku.com/${APP_NAME}.git
     $ heroku config:set DESCRIPTION='This application is running using heroku.yml without setup section.'
     $ git push heroku master
     $ heroku open
@@ -50,6 +54,7 @@ Cleanup
     $ git add heroku.yml
     $ git commit -m 'Enable setup section'
     $ heroku create --stack=container --manifest $APP_NAME
+    $ git remote set-url heroku https://git.heroku.com/${APP_NAME}.git
     $ git push heroku master
     $ heroku open
 
