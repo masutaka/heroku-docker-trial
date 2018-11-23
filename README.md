@@ -5,15 +5,19 @@ You can run this sample application in several ways.
 ## [Local Development with Docker Compose](https://devcenter.heroku.com/articles/local-development-with-docker-compose)
 
     $ docker-compose build
-    $ docker-compose up
-    $ open http://0.0.0.0:10080
+    $ docker-compose up -d
+    $ open http://localhost:13000
+
+Cleanup
+
+    $ docker-compose down
 
 ## [Container Registry & Runtime (Docker Deploys)](https://devcenter.heroku.com/articles/container-registry-and-runtime)
 
     $ APP_NAME=masutaka-docker
     $ heroku container:login
     $ heroku create $APP_NAME
-    $ heroku config:set DESCRIPTION='This application is running using "heroku container:push".'
+    $ heroku config:set DESCRIPTION='This application is running using "heroku container:push web".'
     $ heroku container:push web
     $ heroku container:release web
     $ heroku open
@@ -42,7 +46,7 @@ Cleanup
     $ APP_NAME=masutaka-heroku-yml-setup
     $ heroku update beta
     $ heroku plugins:install @heroku-cli/plugin-manifest
-    $ heroku create $APP_NAME
+    $ heroku create $APP_NAME --manifest
     $ heroku stack:set container
     $ sed -i '.bak' -e 's/^# //g' heroku.yml
     $ git add heroku.yml
