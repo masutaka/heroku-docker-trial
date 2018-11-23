@@ -4,7 +4,7 @@ This is a sample application for [Heroku Meetup #23 "Heroku Dynamite!!"](https:/
 
 You can run it in several ways.
 
-## [Local Development with Docker Compose](https://devcenter.heroku.com/articles/local-development-with-docker-compose)
+## 1. [Local Development with Docker Compose](https://devcenter.heroku.com/articles/local-development-with-docker-compose)
 
     $ docker-compose build
     $ docker-compose up -d
@@ -14,13 +14,14 @@ Cleanup
 
     $ docker-compose down
 
-## [Container Registry & Runtime (Docker Deploys)](https://devcenter.heroku.com/articles/container-registry-and-runtime)
+## 2. [Container Registry & Runtime (Docker Deploys)](https://devcenter.heroku.com/articles/container-registry-and-runtime)
 
-    $ APP_NAME=masutaka-docker
+Create and open App
+
     $ heroku container:login
-    $ heroku create $APP_NAME
-    $ open https://dashboard.heroku.com/apps/${APP_NAME}/settings
-    $ git remote set-url heroku https://git.heroku.com/${APP_NAME}.git
+    $ heroku create masutaka-docker
+    $ open https://dashboard.heroku.com/apps/masutaka-docker/settings
+    $ git remote set-url heroku https://git.heroku.com/masutaka-docker.git
     $ heroku config:set DESCRIPTION='This application is running using "heroku container:push web".'
     $ heroku container:push web
     $ heroku container:release web
@@ -28,41 +29,52 @@ Cleanup
 
 Cleanup
 
-    $ heroku destroy $APP_NAME
+    $ heroku destroy masutaka-docker
 
-## [Building Docker Images with heroku.yml](https://devcenter.heroku.com/articles/build-docker-images-heroku-yml)
+## 3. [Building Docker Images with heroku.yml](https://devcenter.heroku.com/articles/build-docker-images-heroku-yml)
 
-### without setup section
+### 3.1. without setup section
 
-    $ APP_NAME=masutaka-heroku-yml
-    $ heroku create --stack=container $APP_NAME
-    $ open https://dashboard.heroku.com/apps/${APP_NAME}/settings
-    $ git remote set-url heroku https://git.heroku.com/${APP_NAME}.git
+Prepare
+
+    $ mv heroku.yml.bak heroku.yml
+    $ git add heroku.yml heroku.yml.bak
+    $ git commit -m '$ mv heroku.yml.bak heroku.yml'
+
+Create and open App
+
+    $ heroku create --stack=container masutaka-heroku-yml
+    $ open https://dashboard.heroku.com/apps/masutaka-heroku-yml/settings
+    $ git remote set-url heroku https://git.heroku.com/masutaka-heroku-yml.git
     $ heroku config:set DESCRIPTION='This application is running using heroku.yml without setup section.'
     $ git push heroku master
     $ heroku open
 
 Cleanup
 
-    $ heroku destroy $APP_NAME
+    $ heroku destroy masutaka-heroku-yml
 
-### with setup section
+### 3.2. with setup section
 
-    $ APP_NAME=masutaka-heroku-yml-setup
+Prepare
+
     $ heroku update beta
     $ heroku plugins:install @heroku-cli/plugin-manifest
     $ sed -i '.bak' -e 's/^# //g' heroku.yml
     $ git diff
     $ git add heroku.yml
     $ git commit -m 'Enable setup section'
-    $ heroku create --stack=container --manifest $APP_NAME
-    $ open https://dashboard.heroku.com/apps/${APP_NAME}/settings
-    $ git remote set-url heroku https://git.heroku.com/${APP_NAME}.git
+
+Create and open App
+
+    $ heroku create --stack=container --manifest masutaka-heroku-yml-setup
+    $ open https://dashboard.heroku.com/apps/masutaka-heroku-yml-setup/settings
+    $ git remote set-url heroku https://git.heroku.com/masutaka-heroku-yml-setup.git
     $ git push heroku master
     $ heroku open
 
 Cleanup
 
-    $ heroku destroy $APP_NAME
+    $ heroku destroy masutaka-heroku-yml-setup
     $ heroku update stable
     $ heroku plugins:remove manifest
