@@ -40,6 +40,7 @@ Prepare
     $ mv heroku.yml.bak heroku.yml
     $ git add heroku.yml heroku.yml.bak
     $ git commit -m '$ mv heroku.yml.bak heroku.yml'
+    $ cat heroku.yml
 
 Create and open App
 
@@ -64,6 +65,7 @@ Prepare
     $ git diff
     $ git add heroku.yml
     $ git commit -m 'Enable setup section'
+    $ cat heroku.yml
 
 Create and open App
 
