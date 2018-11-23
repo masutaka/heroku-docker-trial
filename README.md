@@ -6,8 +6,7 @@ You can run it in several ways.
 
 ## 1. [Local Development with Docker Compose](https://devcenter.heroku.com/articles/local-development-with-docker-compose)
 
-    $ docker-compose build
-    $ docker-compose up -d
+    $ docker-compose up --build -d
     $ open http://localhost:13000
 
 Cleanup
@@ -20,9 +19,9 @@ Create and open App
 
     $ heroku container:login
     $ heroku create masutaka-docker
-    $ open https://dashboard.heroku.com/apps/masutaka-docker/settings
     $ git remote set-url heroku https://git.heroku.com/masutaka-docker.git
-    $ heroku config:set DESCRIPTION='This application is running using "heroku container:push web".'
+    $ heroku config:set METHOD='heroku container command'
+    $ open https://dashboard.heroku.com/apps/masutaka-docker/settings
     $ heroku container:push web
     $ heroku container:release web
     $ heroku open
@@ -45,9 +44,9 @@ Prepare
 Create and open App
 
     $ heroku create --stack=container masutaka-heroku-yml
-    $ open https://dashboard.heroku.com/apps/masutaka-heroku-yml/settings
     $ git remote set-url heroku https://git.heroku.com/masutaka-heroku-yml.git
-    $ heroku config:set DESCRIPTION='This application is running using heroku.yml without setup section.'
+    $ heroku config:set METHOD='heroku.yml without setup section'
+    $ open https://dashboard.heroku.com/apps/masutaka-heroku-yml/settings
     $ git push heroku master
     $ heroku open
 
@@ -70,8 +69,8 @@ Prepare
 Create and open App
 
     $ heroku create --stack=container --manifest masutaka-heroku-yml-setup
-    $ open https://dashboard.heroku.com/apps/masutaka-heroku-yml-setup/settings
     $ git remote set-url heroku https://git.heroku.com/masutaka-heroku-yml-setup.git
+    $ open https://dashboard.heroku.com/apps/masutaka-heroku-yml-setup/settings
     $ git push heroku master
     $ heroku open
 

@@ -4,7 +4,7 @@ services:
   web:
     build: .
     environment:
-      DESCRIPTION: This application is running using docker-compose.yml.
+      METHOD: docker-compose.yml
       PORT: 3000
     ports:
       - "13000:3000"

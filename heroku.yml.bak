@@ -1,6 +1,6 @@
 # setup:
 #   config:
-#     DESCRIPTION: This application is running using heroku.yml with setup section.
+#     METHOD: heroku.yml with setup section
 build:
   docker:
     web: Dockerfile
