@@ -45,11 +45,11 @@ Cleanup
     $ APP_NAME=masutaka-heroku-yml-setup
     $ heroku update beta
     $ heroku plugins:install @heroku-cli/plugin-manifest
-    $ heroku create --stack=container --manifest $APP_NAME
     $ sed -i '.bak' -e 's/^# //g' heroku.yml
     $ git diff
     $ git add heroku.yml
     $ git commit -m 'Enable setup section'
+    $ heroku create --stack=container --manifest $APP_NAME
     $ git push heroku master
     $ heroku open
 
