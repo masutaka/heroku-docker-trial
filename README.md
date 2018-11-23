@@ -61,5 +61,5 @@ Cleanup
 Cleanup
 
     $ heroku destroy $APP_NAME
-	$ heroku update stable
-	$ heroku plugins:remove manifest
+    $ heroku update stable
+    $ heroku plugins:remove manifest
