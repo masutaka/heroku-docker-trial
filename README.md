@@ -6,6 +6,8 @@ You can run it in several ways.
 
 ## 1. [Local Development with Docker Compose](https://devcenter.heroku.com/articles/local-development-with-docker-compose)
 
+    $ cat docker-compose.yml
+    $ cat Dockerfile
     $ docker-compose up --build -d
     $ open http://localhost:13000
 
