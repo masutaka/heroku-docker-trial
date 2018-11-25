@@ -19,9 +19,8 @@ Create and open App
 
     $ heroku container:login
     $ heroku create masutaka-docker
-    $ git remote set-url heroku https://git.heroku.com/masutaka-docker.git
-    $ heroku config:set METHOD='heroku container command'
     $ open https://dashboard.heroku.com/apps/masutaka-docker/settings
+    $ heroku config:set METHOD='heroku container command'
     $ heroku container:push web
     $ heroku container:release web
     $ heroku open
@@ -45,8 +44,8 @@ Create and open App
 
     $ heroku create --stack=container masutaka-heroku-yml
     $ git remote set-url heroku https://git.heroku.com/masutaka-heroku-yml.git
-    $ heroku config:set METHOD='heroku.yml without setup section'
     $ open https://dashboard.heroku.com/apps/masutaka-heroku-yml/settings
+    $ heroku config:set METHOD='heroku.yml without setup section'
     $ git push heroku master
     $ heroku open
 
